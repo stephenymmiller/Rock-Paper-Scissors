@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css“>
+    <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css”>
+    <title>Document</title>
+    <style>
+        #rock {
+            background-color: darkred;
+            color: white;
+            border: 2px solid black;
+            padding: 15px 32px;
+            font-size: 20px;
+        }
+
+        #paper {
+            background-color: darkred;
+            color: white;
+            border: 2px solid black;
+            padding: 15px 32px;
+            font-size: 20px;
+        }
+
+        #scissors {
+            background-color: darkred;
+            color: white;
+            border: 2px solid black;
+            padding: 15px 32px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-xs-12 col-lg-12">
+                <img src="https://i.pinimg.com/originals/65/b7/d4/65b7d418a96e9c8acff0f31283c52dfc.jpg" width="500px">
+                <h1>Wanna Play a Game?</h1>
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script>
+        (function () {
+            var choices = ['rock', 'paper', 'scissors', 'rock', 'paper', 'scissors', 'rock', 'paper', 'scissors'];
+            var index = Math.floor((Math.random() * 8));
+            var computer = choices[index];
+            var rock = document.getElementById('rock');
+            var paper = document.getElementById('paper');
+            var scissors = document.getElementById('scissors');
+
+            rock.addEventListener('click', function () {
+                play('rock');
+            });
+
+            paper.addEventListener('click', function () {
+                play('paper');
+            });
+
+            scissors.addEventListener('click', function () {
+                play('scissors');
+            });
+
+            function showResult(result) {
+                alert(result);
+            }
+
+            function play(playerChoice) {
+                var result
+                console.log(playerChoice, computer)
+                if (computer === playerChoice) {
+                    result = 'tie'
+                }
+                else if (computer === 'rock' && playerChoice === 'paper') {
+                    result = 'player wins'
+                }
+                else if (computer === 'rock' && playerChoice === 'scissors') {
+                    result = 'computer wins'
+                }
+                else if (computer === 'paper' && playerChoice === 'rock') {
+                    result = 'computer wins'
+                }
+                else if (computer === 'paper' && playerChoice === 'scissors') {
+                    result = 'player wins'
+                }
+                else if (computer === 'scissors' && playerChoice === 'rock') {
+                    result = 'player wins'
+                }
+                else if (computer === 'scissors' && playerChoice === 'paper') {
+                    result = 'computer wins'
+                }
+
+                showResult(result);
+            }
+
+        })();
+    </script>
+
+
+</body>
+
+</html>
